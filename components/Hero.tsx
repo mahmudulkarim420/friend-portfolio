@@ -42,7 +42,7 @@ const Hero = () => {
           position: absolute;
           inset: 0;
           background-image: url('/images/hero.jpeg');
-          background-size: 100% auto;
+          background-size: cover;
           background-repeat: no-repeat;
           background-position: center top;
           transition: transform 0.15s ease-out;
@@ -60,7 +60,7 @@ const Hero = () => {
 
         .hero__marquee-wrap {
           position: absolute;
-          bottom: 38%;
+          bottom: 18%;
           left: 0;
           width: 100%;
           overflow: hidden;
@@ -103,7 +103,7 @@ const Hero = () => {
 
         .hero__center {
           position: absolute;
-          bottom: 13%;
+          bottom: 12%;
           right: 6%;
           z-index: 6;
           text-align: right;
@@ -124,7 +124,7 @@ const Hero = () => {
 
         .hero__location {
           position: absolute;
-          bottom: 32px;
+          bottom: 6%;
           left: 48px;
           z-index: 6;
           font-size: 9px;
@@ -212,7 +212,8 @@ const Hero = () => {
           }
 
           .hero__marquee-wrap {
-            bottom: 35%;
+            bottom: 22%;
+            top: auto;
           }
 
           .hero__marquee-text {
@@ -220,8 +221,11 @@ const Hero = () => {
           }
 
           .hero__center {
-            right: 5%;
-            bottom: 12%;
+            right: 6%;
+            left: auto;
+            bottom: 14%;
+            top: auto;
+            text-align: right;
           }
 
           .hero__title-line {
@@ -229,9 +233,12 @@ const Hero = () => {
           }
 
           .hero__location {
-            left: 16px;
-            bottom: 20px;
+            left: 24px;
+            right: auto;
+            bottom: 6%;
+            top: auto;
             font-size: 7px;
+            text-align: left;
           }
 
           .hero__scroll {
@@ -260,7 +267,7 @@ const Hero = () => {
         /* Tablet Responsive Styles */
         @media (min-width: 641px) and (max-width: 1024px) {
           .hero__marquee-wrap {
-            bottom: 36%;
+            bottom: 20%;
           }
 
           .hero__marquee-text {
@@ -269,7 +276,7 @@ const Hero = () => {
 
           .hero__center {
             right: 5%;
-            bottom: 14%;
+            bottom: 12%;
           }
 
           .hero__title-line {
@@ -278,7 +285,7 @@ const Hero = () => {
 
           .hero__location {
             left: 32px;
-            bottom: 24px;
+            bottom: 6%;
             font-size: 8px;
           }
 
