@@ -60,7 +60,7 @@ const Hero = () => {
 
         .hero__marquee-wrap {
           position: absolute;
-          bottom: 18%;
+          bottom: 40%;
           left: 0;
           width: 100%;
           overflow: hidden;
@@ -103,7 +103,7 @@ const Hero = () => {
 
         .hero__center {
           position: absolute;
-          bottom: 12%;
+          bottom: 18%;
           right: 6%;
           z-index: 6;
           text-align: right;
@@ -124,7 +124,7 @@ const Hero = () => {
 
         .hero__location {
           position: absolute;
-          bottom: 6%;
+          bottom: 9%;
           left: 48px;
           z-index: 6;
           font-size: 9px;
@@ -212,7 +212,7 @@ const Hero = () => {
           }
 
           .hero__marquee-wrap {
-            bottom: 22%;
+            bottom: 35%;
             top: auto;
           }
 
@@ -223,7 +223,7 @@ const Hero = () => {
           .hero__center {
             right: 6%;
             left: auto;
-            bottom: 14%;
+            bottom: 20%;
             top: auto;
             text-align: right;
           }
@@ -235,7 +235,7 @@ const Hero = () => {
           .hero__location {
             left: 24px;
             right: auto;
-            bottom: 6%;
+            bottom: 8%;
             top: auto;
             font-size: 7px;
             text-align: left;
@@ -267,7 +267,7 @@ const Hero = () => {
         /* Tablet Responsive Styles */
         @media (min-width: 641px) and (max-width: 1024px) {
           .hero__marquee-wrap {
-            bottom: 20%;
+            bottom: 35%;
           }
 
           .hero__marquee-text {
@@ -276,7 +276,7 @@ const Hero = () => {
 
           .hero__center {
             right: 5%;
-            bottom: 12%;
+            bottom: 18%;
           }
 
           .hero__title-line {
@@ -285,7 +285,7 @@ const Hero = () => {
 
           .hero__location {
             left: 32px;
-            bottom: 6%;
+            bottom: 8%;
             font-size: 8px;
           }
 
