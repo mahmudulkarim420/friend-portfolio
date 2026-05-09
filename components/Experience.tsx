@@ -1,11 +1,20 @@
+"use client";
+
 import { experiences } from "@/data/experience";
+import { motion } from "framer-motion";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-12 sm:py-16 md:py-20" style={{ background: '#000000' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight mb-4 font-bebas" style={{
+    <section id="experience" className="py-20 sm:py-24 md:py-32 relative overflow-hidden" style={{ background: '#000000' }}>
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
+        <div className="absolute top-1/4 left-10 w-64 h-64 bg-red-600 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-yellow-600 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-20 md:mb-32">
+          <h2 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter mb-6 font-bebas" style={{
             background: "linear-gradient(90deg, #555 0%, #fff 40%, #aaa 60%, #555 100%)",
             backgroundSize: "200% auto",
             WebkitBackgroundClip: "text",
@@ -15,50 +24,83 @@ export default function Experience() {
           }}>
             Experience
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300">My professional journey</p>
+          <div className="h-1 w-24 bg-gradient-to-r from-[#ff6b6b] to-[#ffd93d] mx-auto mb-6" />
+          <p className="text-xl sm:text-2xl text-gray-400 font-light max-w-2xl mx-auto">
+            A timeline of my professional growth and creative contributions.
+          </p>
         </div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gray-700" />
+          {/* Central Timeline Line */}
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-[2px] h-full bg-gradient-to-b from-[#ff6b6b] via-[#ffd93d] to-transparent opacity-30" />
 
-          <div className="space-y-12">
+          <div className="space-y-24 md:space-y-32">
             {experiences.map((exp, idx) => (
-              <div
+              <motion.div
                 key={exp.id}
-                className={`relative flex items-center ${
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative flex items-center justify-between ${
                   idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
               >
-                {/* Timeline dot */}
-                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-black shadow-lg z-10" style={{ background: 'linear-gradient(90deg, #ff6b6b, #ffd93d)' }} />
+                {/* Timeline Connector Dot */}
+                <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center z-20">
+                  <div className={`w-5 h-5 rounded-full border-4 border-black shadow-[0_0_15px_rgba(255,107,107,0.5)] transition-transform duration-500 hover:scale-150 ${exp.current ? 'animate-pulse' : ''}`} 
+                       style={{ background: 'linear-gradient(90deg, #ff6b6b, #ffd93d)' }} />
+                </div>
 
-                {/* Content card */}
-                <div className={`w-full md:w-5/12 ${idx % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                  <div className="rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300" style={{ background: exp.current ? 'linear-gradient(90deg, #ff6b6b, #ffd93d)' : '#1a1a1a', border: exp.current ? 'none' : '1px solid #333' }}>
-                    {exp.current && (
-                      <span className="inline-block px-3 py-1 bg-white text-black text-xs font-semibold rounded-full mb-3">
-                        Current Position
-                      </span>
-                    )}
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                {/* Content Card */}
+                <div className={`w-full md:w-[45%] ${idx % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                  <div 
+                    className={`group relative rounded-2xl p-8 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${
+                      exp.current 
+                      ? 'border-2 border-[#ff6b6b]/50 shadow-[0_10px_40px_rgba(255,107,107,0.2)]' 
+                      : 'border border-white/10 hover:border-white/20'
+                    }`}
+                    style={{ 
+                      background: 'rgba(255, 255, 255, 0.03)',
+                    }}
+                  >
+                    {/* Period Badge */}
+                    <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6"
+                         style={{ background: 'linear-gradient(90deg, #ff6b6b, #ffd93d)', color: '#000' }}>
+                      {exp.period}
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-white mb-2 group-hover:text-[#ffd93d] transition-colors duration-300">
                       {exp.title}
                     </h3>
-                    <p className="text-white font-semibold mb-1">{exp.company}</p>
-                    <p className="text-sm text-white/80 mb-1">{exp.location}</p>
-                    <p className="text-sm text-white/70 mb-4">{exp.period}</p>
-                    <p className="text-white mb-4">{exp.description}</p>
-                    <div className="space-y-2">
+                    
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6">
+                      <p className="text-xl font-semibold text-white/90">{exp.company}</p>
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/30 hidden sm:block" />
+                      <p className="text-sm text-white/50 uppercase tracking-widest">{exp.location}</p>
+                    </div>
+
+                    <p className="text-gray-400 mb-8 leading-relaxed italic">
+                      &quot;{exp.description}&quot;
+                    </p>
+
+                    <div className="space-y-4">
                       {exp.achievements.map((achievement, achIdx) => (
-                        <div key={achIdx} className="flex items-start">
-                          <span className="text-white mr-2">✓</span>
-                          <span className="text-white text-sm">{achievement}</span>
+                        <div key={achIdx} className="flex items-start group/ach">
+                          <div className="mt-1.5 mr-4 w-1.5 h-1.5 rounded-full bg-[#ff6b6b] group-hover/ach:scale-125 transition-transform" />
+                          <p className="text-gray-300 text-sm leading-relaxed">{achievement}</p>
                         </div>
                       ))}
                     </div>
+
+                    {/* Gradient Overlay on Hover */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#ff6b6b]/5 to-[#ffd93d]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   </div>
                 </div>
-              </div>
+
+                {/* Empty space for the other side of the timeline */}
+                <div className="hidden md:block w-[45%]" />
+              </motion.div>
             ))}
           </div>
         </div>

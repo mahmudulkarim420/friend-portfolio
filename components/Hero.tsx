@@ -41,8 +41,9 @@ const Hero = () => {
         .hero__bg {
           position: absolute;
           inset: 0;
-          background-image: url('/images/img1.png');
-          background-size: cover;
+          background-image: url('/images/hero.jpeg');
+          background-size: 100% auto;
+          background-repeat: no-repeat;
           background-position: center top;
           transition: transform 0.15s ease-out;
           filter: brightness(0.75) contrast(1.05);
@@ -304,7 +305,7 @@ const Hero = () => {
         <div
           className="hero__bg"
           style={{
-            transform: `translate(${mousePos.x * 0.4}px, ${mousePos.y * 0.4}px) scale(1.04)`,
+            transform: `translate(${mousePos.x * 0.4}px, ${mousePos.y * 0.4}px) scale(1)`,
           }}
         />
 
