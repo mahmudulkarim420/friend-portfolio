@@ -200,7 +200,7 @@ const FeaturedSkills: React.FC = () => {
             animation: "shimmer 3s linear infinite"
           }}
         >
-          MERN Stack & Graphic Design
+          Web Development & Graphic Designer
         </h1>
 
         {/* Categories */}

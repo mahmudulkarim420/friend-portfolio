@@ -333,8 +333,8 @@ const Hero = () => {
 
         {/* Bottom-right tagline */}
         <div className="hero__center">
-          <span className="hero__title-line">Graphic Designer</span>
-          <span className="hero__title-line">and Web Developer</span>
+          <span className="hero__title-line">Web Development</span>
+          <span className="hero__title-line">and Graphic Designer</span>
         </div>
 
         {/* Location */}

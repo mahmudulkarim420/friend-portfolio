@@ -1,7 +1,7 @@
 export const experiences = [
   {
     id: 1,
-    title: 'Graphic Designer & Web Lead',
+    title: 'Web Developer & Graphic Designer',
     location: 'Barishal, Bangladesh',
     period: 'Jan 2024 - Present',
     description: 'Leading the creative team in developing high-end visual identities and modern web experiences.',

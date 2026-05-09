@@ -34,7 +34,7 @@ export default function About() {
 
           <div className="space-y-4 sm:space-y-6">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-              Hi, I&apos;m a passionate Web Developer & Graphic Designer
+              Hi, I&apos;m focused on Web Development and Graphic Designer
             </h3>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               I specialize in creating visually stunning and highly functional digital experiences. With a blend of technical expertise in the MERN stack and a creative eye for graphic design, I build modern web applications and compelling visual identities that resonate with users.
