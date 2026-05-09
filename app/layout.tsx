@@ -31,6 +31,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Khushbula Nahiyan | Graphic Designer & Web Developer",
   description: "Portfolio of Khushbula Nahiyan — Graphic Designer, Web Developer, and Software Engineering student based in Bangladesh. Specializing in Machine Learning, Deep Learning, and modern web development.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
