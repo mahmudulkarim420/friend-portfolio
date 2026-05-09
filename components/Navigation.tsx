@@ -13,18 +13,14 @@ const navItems = {
   "#about": {
     name: "About",
   },
-  "#achievements": {
-    name: "Achievements",
-  },
+
   "#skills": {
     name: "Skills",
   },
   "#experience": {
     name: "Experience",
   },
-  "#blogs": {
-    name: "Blog",
-  },
+
   "#contact": {
     name: "Contact",
   },
@@ -39,7 +35,7 @@ export function MorphicNavbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = ["home", "gallery", "about", "achievements", "skills", "experience", "blogs", "contact"];
+      const sections = ["home", "gallery", "about", "skills", "experience", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -484,7 +480,7 @@ export function MorphicNavbar() {
       `}</style>
 
       <nav className={`hero__nav ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="hero__logo">Zihad Hasan</div>
+        <div className="hero__logo">Khushbula Nahiyan</div>
 
         {/* Desktop Menu */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '36px' }}>

@@ -18,6 +18,12 @@ import {
   SiCanva,
   SiAnaconda,
   SiArduino,
+  SiMongodb,
+  SiExpress,
+  SiNodedotjs,
+  SiReact,
+  SiTailwindcss,
+  SiFigma,
 } from "react-icons/si";
 import { FaJava, FaDatabase, FaNetworkWired } from "react-icons/fa";
 import { BsBarChartFill } from "react-icons/bs";
@@ -26,7 +32,7 @@ import { TbChartHistogram } from "react-icons/tb";
 
 interface Skill {
   name: string;
-  icon: React.ReactNode;
+  iconName: string;
   color: string;
 }
 
@@ -35,62 +41,46 @@ interface SkillCategory {
   skills: Skill[];
 }
 
-const skillsData: SkillCategory[] = [
-  {
-    category: "Programming Languages",
-    skills: [
-      { name: "C", icon: <SiC />, color: "#A8B9CC" },
-      { name: "C++", icon: <SiCplusplus />, color: "#00599C" },
-      { name: "Java", icon: <FaJava />, color: "#ED8B00" },
-      { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
-      { name: "PHP", icon: <SiPhp />, color: "#777BB4" },
-      { name: "SQL", icon: <FaDatabase />, color: "#336791" },
-      { name: "Python", icon: <SiPython />, color: "#3776AB" },
-    ],
-  },
-  {
-    category: "Web Technologies",
-    skills: [
-      { name: "HTML", icon: <SiHtml5 />, color: "#E34F26" },
-      { name: "CSS", icon: <SiCss />, color: "#1572B6" },
-    ],
-  },
-  {
-    category: "Data Science & ML",
-    skills: [
-      { name: "NumPy", icon: <SiNumpy />, color: "#013243" },
-      { name: "Pandas", icon: <SiPandas />, color: "#150458" },
-      { name: "Scikit-learn", icon: <SiScikitlearn />, color: "#F7931E" },
-      { name: "Seaborn", icon: <BsBarChartFill />, color: "#4C72B0" },
-      { name: "Matplotlib", icon: <MdShowChart />, color: "#11557C" },
-      { name: "PyTorch", icon: <SiPytorch />, color: "#EE4C2C" },
-      { name: "TensorFlow", icon: <SiTensorflow />, color: "#FF6F00" },
-    ],
-  },
-  {
-    category: "Design & Multimedia",
-    skills: [
-      { name: "Adobe Photoshop", icon: <MdPhotoLibrary />, color: "#31A8FF" },
-      { name: "Adobe Illustrator", icon: <MdBrush />, color: "#FF9A00" },
-      { name: "Canva", icon: <SiCanva />, color: "#00C4CC" },
-      { name: "DaVinci Resolve", icon: <MdVideoLibrary />, color: "#FF5722" },
-    ],
-  },
-  {
-    category: "Tools & Platforms",
-    skills: [
-      { name: "Shell", icon: <SiGnubash />, color: "#4EAA25" },
-      { name: "Power BI", icon: <TbChartHistogram />, color: "#F2C811" },
-      { name: "Anaconda Navigator", icon: <SiAnaconda />, color: "#44A833" },
-      { name: "Arduino", icon: <SiArduino />, color: "#00979D" },
-      {
-        name: "Cisco Packet Tracer",
-        icon: <FaNetworkWired />,
-        color: "#1BA0D7",
-      },
-    ],
-  },
-];
+import { skillsData } from "@/data/skills";
+
+const iconMap: Record<string, React.ReactNode> = {
+  SiC: <SiC />,
+  SiCplusplus: <SiCplusplus />,
+  FaJava: <FaJava />,
+  SiJavascript: <SiJavascript />,
+  SiPhp: <SiPhp />,
+  FaDatabase: <FaDatabase />,
+  SiPython: <SiPython />,
+  SiHtml5: <SiHtml5 />,
+  SiCss: <SiCss />,
+  SiNumpy: <SiNumpy />,
+  SiPandas: <SiPandas />,
+  SiScikitlearn: <SiScikitlearn />,
+  BsBarChartFill: <BsBarChartFill />,
+  MdShowChart: <MdShowChart />,
+  SiPytorch: <SiPytorch />,
+  SiTensorflow: <SiTensorflow />,
+  MdPhotoLibrary: <MdPhotoLibrary />,
+  MdBrush: <MdBrush />,
+  SiCanva: <SiCanva />,
+  MdVideoLibrary: <MdVideoLibrary />,
+  SiGnubash: <SiGnubash />,
+  TbChartHistogram: <TbChartHistogram />,
+  SiAnaconda: <SiAnaconda />,
+  SiArduino: <SiArduino />,
+  FaNetworkWired: <FaNetworkWired />,
+  SiMongodb: <SiMongodb />,
+  SiExpress: <SiExpress />,
+  SiNodedotjs: <SiNodedotjs />,
+  SiReact: <SiReact />,
+  SiTailwindcss: <SiTailwindcss />,
+  SiAdobephotoshop: <MdPhotoLibrary />,
+  SiAdobeillustrator: <MdBrush />,
+  SiFigma: <SiFigma />,
+  SiAdobepremierepro: <MdVideoLibrary />,
+  SiAdobeaftereffects: <MdVideoLibrary />,
+  SiAdobeindesign: <MdBrush />,
+};
 
 const SkillBadge: React.FC<{ skill: Skill }> = ({ skill }) => {
   const [hovered, setHovered] = useState(false);
@@ -129,19 +119,19 @@ const SkillBadge: React.FC<{ skill: Skill }> = ({ skill }) => {
           alignItems: "center",
         }}
       >
-        {skill.icon}
+        {iconMap[skill.iconName]}
       </span>
       <span
         style={{
           fontSize: "14px",
           fontWeight: 500,
-          fontFamily: "'Geist Mono', 'Fira Code', 'Courier New', monospace",
           color: hovered ? "#ffffff" : "rgba(255,255,255,0.8)",
           letterSpacing: "0.02em",
           transition: "color 0.25s ease",
           lineHeight: 1.1,
           wordBreak: "break-word",
         }}
+        className="font-mono"
       >
         {skill.name}
       </span>
@@ -153,12 +143,11 @@ const FeaturedSkills: React.FC = () => {
   return (
     <section
       id="skills"
-      className="px-4 sm:px-6 md:px-8 lg:px-10"
+      className="px-4 sm:px-6 md:px-8 lg:px-10 font-sans"
       style={{
         minHeight: "100vh",
         background: "#000000",
         padding: "56px 16px",
-        fontFamily: "'Geist', 'Inter', sans-serif",
       }}
     >
       {/* Ambient background blobs */}
@@ -196,13 +185,13 @@ const FeaturedSkills: React.FC = () => {
       <div style={{ maxWidth: "900px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         {/* Title */}
         <h1
+          className="font-bebas"
           style={{
             textAlign: "center",
             fontSize: "clamp(2rem, 5vw, 5rem)",
             fontWeight: 900,
             marginBottom: "36px",
             letterSpacing: "-0.02em",
-            fontFamily: "'Bebas Neue', sans-serif",
             background: "linear-gradient(90deg, #555 0%, #fff 40%, #aaa 60%, #555 100%)",
             backgroundSize: "200% auto",
             WebkitBackgroundClip: "text",
@@ -211,7 +200,7 @@ const FeaturedSkills: React.FC = () => {
             animation: "shimmer 3s linear infinite"
           }}
         >
-          Featured Skills
+          MERN Stack & Graphic Design
         </h1>
 
         {/* Categories */}
@@ -236,8 +225,6 @@ const FeaturedSkills: React.FC = () => {
                     textTransform: "uppercase",
                     whiteSpace: "nowrap",
                     margin: 0,
-                    fontFamily:
-                      "'Geist Mono', 'Fira Code', monospace",
                   }}
                 >
                   {section.category}

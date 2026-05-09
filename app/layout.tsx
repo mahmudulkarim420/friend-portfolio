@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Bebas_Neue, DM_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,9 +12,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const bebasNeue = Bebas_Neue({
+  weight: "400",
+  variable: "--font-bebas-neue",
+  subsets: ["latin"],
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "Zihad Hasan | AI Engineer & Web Developer",
-  description: "Portfolio of Zihad Hasan — AI Engineer, Web Developer, and Software Engineering student based in Bangladesh. Specializing in Machine Learning, Deep Learning, and modern web development.",
+  title: "Khushbula Nahiyan | Graphic Designer & Web Developer",
+  description: "Portfolio of Khushbula Nahiyan — Graphic Designer, Web Developer, and Software Engineering student based in Bangladesh. Specializing in Machine Learning, Deep Learning, and modern web development.",
 };
 
 export default function RootLayout({
@@ -25,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${bebasNeue.variable} ${dmSans.variable} ${montserrat.variable} antialiased`}
       >
         {children}
       </body>

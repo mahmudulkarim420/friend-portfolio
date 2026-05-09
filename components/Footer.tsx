@@ -44,15 +44,6 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} Portfolio. All rights reserved.</p>
-          <div className="mt-4">
-            <a
-              href="/login"
-              className="inline-block text-xs text-gray-600 hover:text-gray-400 transition-colors"
-              style={{ opacity: 0.5 }}
-            >
-              Admin
-            </a>
-          </div>
         </div>
       </div>
     </footer>

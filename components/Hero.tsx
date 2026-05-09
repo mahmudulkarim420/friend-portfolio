@@ -19,13 +19,11 @@ const Hero = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const name = "Zihad Hasan • Zihad Hasan • Zihad Hasan • Zihad Hasan • Zihad Hasan • ";
+  const name = "Khushbula Nahiyan • Khushbula Nahiyan • Khushbula Nahiyan • Khushbula Nahiyan • Khushbula Nahiyan • ";
 
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap');
-
         /* ── Scoped to .hero — NO global resets ── */
 
         .hero {
@@ -43,7 +41,7 @@ const Hero = () => {
         .hero__bg {
           position: absolute;
           inset: 0;
-          background-image: url('https://i.ibb.co.com/HTXF1bbB/Whats-App-Image-2026-03-03-at-18-22-30.jpg');
+          background-image: url('/images/img1.png');
           background-size: cover;
           background-position: center top;
           transition: transform 0.15s ease-out;
@@ -77,7 +75,7 @@ const Hero = () => {
         }
 
         .hero__marquee-text {
-          font-family: 'Bebas Neue', sans-serif;
+          font-family: var(--font-bebas);
           font-size: clamp(80px, 13vw, 200px);
           letter-spacing: 0.01em;
           line-height: 0.88;
@@ -113,7 +111,7 @@ const Hero = () => {
 
         .hero__title-line {
           display: block;
-          font-family: 'Bebas Neue', sans-serif;
+          font-family: var(--font-bebas);
           font-size: clamp(28px, 3.8vw, 58px);
           letter-spacing: 0.04em;
           line-height: 1.05;
@@ -334,8 +332,8 @@ const Hero = () => {
 
         {/* Bottom-right tagline */}
         <div className="hero__center">
-          <span className="hero__title-line">AI Engineer</span>
-          <span className="hero__title-line">and Rechercher</span>
+          <span className="hero__title-line">Graphic Designer</span>
+          <span className="hero__title-line">and Web Developer</span>
         </div>
 
         {/* Location */}

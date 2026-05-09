@@ -20,38 +20,15 @@ export default function Contact() {
     setLoading(true);
     setStatus({ type: null, message: '' });
 
-    try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
-      const response = await fetch(`${apiUrl}/api/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus({
-          type: 'success',
-          message: 'Thank you for your message! I will get back to you soon.',
-        });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setStatus({
-          type: 'error',
-          message: data.error || 'Failed to send message. Please try again.',
-        });
-      }
-    } catch {
-      setStatus({
-        type: 'error',
-        message: 'An error occurred. Please try again later.',
-      });
-    } finally {
+    // Simulate form submission for a fully static site
+    setTimeout(() => {
       setLoading(false);
-    }
+      setStatus({
+        type: 'success',
+        message: 'Thank you for your message! This is a static demo, so no email was actually sent, but the UI works!',
+      });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    }, 1000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -65,8 +42,7 @@ export default function Contact() {
     <section id="contact" className="py-20" style={{ background: '#000000' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight mb-4" style={{
-            fontFamily: "'Bebas Neue', sans-serif",
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight mb-4 font-bebas" style={{
             background: "linear-gradient(90deg, #555 0%, #fff 40%, #aaa 60%, #555 100%)",
             backgroundSize: "200% auto",
             WebkitBackgroundClip: "text",

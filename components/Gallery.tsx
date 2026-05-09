@@ -4,20 +4,21 @@ import { TextLoop } from "@/components/motion-primitives/text-loop";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import Lenis from "lenis";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const image = [
-  "/images/WhatsApp Image 2026-02-26 at 04.49.25.jpeg",
-  "/images/WhatsApp Image 2026-02-26 at 04.49.26 (1).jpeg",
-  "/images/WhatsApp Image 2026-02-26 at 04.49.26.jpeg",
-  "/images/WhatsApp Image 2026-02-26 at 04.49.28 (1).jpeg",
-  "/images/WhatsApp Image 2026-02-26 at 04.49.28 (2).jpeg",
-  "/images/WhatsApp Image 2026-02-26 at 04.49.28.jpeg",
-  "/images/WhatsApp Image 2026-02-26 at 04.49.33 (1).jpeg",
-  "/images/WhatsApp Image 2026-02-26 at 04.49.33.jpeg",
-  "/images/WhatsApp Image 2026-02-26 at 04.49.34.jpeg",
-  "/images/WhatsApp Image 2026-02-26 at 04.49.36.jpeg",
-  "/images/WhatsApp Image 2026-02-26 at 04.49.37 (1).jpeg",
-  "/images/WhatsApp Image 2026-02-26 at 04.49.37.jpeg",
+  "/images/img1.png",
+  "/images/img2.png",
+  "/images/img3.png",
+  "/images/img4.png",
+  "/images/img5.png",
+  "/images/img6.png",
+  "/images/img7.png",
+  "/images/img8.png",
+  "/images/img9.png",
+  "/images/img10.png",
+  "/images/img11.png",
+  "/images/img12.png",
 ];
 
 const Skiper30 = ({img=image}:{img?:string[]}) => {
@@ -64,15 +65,12 @@ const Skiper30 = ({img=image}:{img?:string[]}) => {
           }}
 
     className="w-full text-black">
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600&display=swap');
-      `}</style>
       <div className="flex h-[40vh] md:h-[40vh] items-center justify-center gap-2 px-4">
 
           {/* <span className="relative text-yellow-300 max-w-[12ch] text-xs uppercase leading-tight opacity-40 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:from-white after:to-black after:content-['']">
             scroll down to see
           </span> */}
-          <div className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-8xl gap-2 sm:gap-3 md:gap-5 grid grid-cols-2 w-full" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+          <div className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-8xl gap-2 sm:gap-3 md:gap-5 grid grid-cols-2 w-full font-bebas">
             <div className="flex justify-end">
               <p>THE</p>
             </div>            <TextLoop
@@ -109,7 +107,7 @@ const Skiper30 = ({img=image}:{img?:string[]}) => {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text'
-        }}>MAN</span>
+        }}>LADY</span>
         <span style={{
           background: 'linear-gradient(90deg, #ff6b6b, #ffd93d)',
           WebkitBackgroundClip: 'text',
@@ -167,9 +165,11 @@ const Column = ({ images, y }: ColumnProps) => {
     >
       {images.map((src, i) => (
         <div key={i} className="relative h-full w-full overflow-hidden">
-          <img
+          <Image
             src={`${src}`}
             alt="image"
+            fill
+            sizes="(max-width: 768px) 33vw, 25vw"
             className="pointer-events-none object-cover"
           />
         </div>
