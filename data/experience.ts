@@ -2,6 +2,7 @@ export const experiences = [
   {
     id: 1,
     title: 'Graphic Designer',
+    company: 'Self-Employed',
     location: 'Barishal, Bangladesh',
     period: 'Jan 2022 - Present',
     description: 'Leading the creative team in developing high-end visual identities and modern web experiences.',
@@ -15,6 +16,7 @@ export const experiences = [
   {
     id: 2,
     title: 'MERN Stack Developer',
+    company: 'Freelance',
     location: 'Barishal, Bangladesh',
     period: 'Jun 2025 - Present',
     description: 'Developed and maintained full-stack web applications using MongoDB, Express, React, and Node.js.',
