@@ -1,6 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
-import { Skiper30 } from '@/components/Gallery';
+import Projects from '@/components/Projects';
 import About from '@/components/About';
 
 import Skills from '@/components/Skills';
@@ -14,9 +14,9 @@ export default function Home() {
     <div className="min-h-screen">
       <Navigation />
       <Hero />
-      <Skiper30 />
       <About />
       <Skills />
+      <Projects />
       <Experience />
       <Contact />
       <Footer />

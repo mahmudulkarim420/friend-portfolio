@@ -7,8 +7,8 @@ const navItems = {
   "#home": {
     name: "Home",
   },
-  "#gallery": {
-    name: "Gallery",
+  "#projects": {
+    name: "Projects",
   },
   "#about": {
     name: "About",
@@ -35,7 +35,7 @@ export function MorphicNavbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = ["home", "gallery", "about", "skills", "experience", "contact"];
+      const sections = ["home", "projects", "about", "skills", "experience", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -500,13 +500,7 @@ export function MorphicNavbar() {
               );
             })}
           </ul>
-          <a
-            href="/Zihad_hasan_Resume.pdf"
-            download="Zihad_Hasan_CV.pdf"
-            className="cv-download-btn"
-          >
-            Download CV
-          </a>
+          
 
           {/* Hamburger Button for Mobile/Tablet */}
           <button
@@ -547,13 +541,7 @@ export function MorphicNavbar() {
             </Link>
           );
         })}
-        <a
-          href="/Zihad_hasan_Resume.pdf"
-          download="Zihad_Hasan_CV.pdf"
-          className="cv-download-btn"
-        >
-          Download CV
-        </a>
+        
       </div>
     </>
   );
